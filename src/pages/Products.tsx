@@ -1,10 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"; // Import Link component for routing
 import { Helmet } from "react-helmet-async";
+import { IProducts } from "../models/IProducts";
+import { CartContext } from "../context/CartContext";
 
 // Product List Component
 const Products = () => {
+  const { myCart, setMyCart } = useContext<any>(CartContext);
+  console.log(myCart);
+
+  const addCart = (product: IProducts) => {
+    setMyCart([...myCart, product]);
+  };
+  const removeCart = (product: IProducts) => {
+    setMyCart(myCart.filter((c: { id: number }) => c.id !== product.id));
+  };
+
   const [products, setProducts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -64,12 +76,38 @@ const Products = () => {
                       {/* Displaying price in INR */}
                     </div>
                     {/* Link to the product details page */}
-                    <Link
+                    {/*<Link
                       to={`/products/${product.id}`}
                       className="btn btn-primary mt-3"
                     >
                       View Details
-                    </Link>
+                    </Link>*/}
+                    {myCart.includes(product) ? (
+                      <Link
+                        className="btn btn-danger"
+                        to = "#"
+                        onClick={() => {
+                          console.log("Remove Product from Cart");
+                          console.log(product);
+                          // setMyCart([...myCart, product]);
+                          removeCart(product);
+                        }}
+                      >
+                        Remove from cart
+                      </Link>
+                    ) : (
+                      <Link
+                        className="btn btn-primary"
+                        to="#"
+                        onClick={() => {
+                          console.log("Add Product to Cart");
+                          console.log(product);
+                          addCart(product);
+                        }}
+                      >
+                        Add to cart
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
