@@ -1,6 +1,4 @@
 import { NavLink } from "react-router-dom";
-
-
 const MenuList = () => {
   return (
     <ul className="navbar-nav me-auto mb-2 mb-md-0">

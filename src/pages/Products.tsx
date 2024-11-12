@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Import Link component for routing
+// import { Link } from "react-router-dom"; // Import Link component for routing
 import { Helmet } from "react-helmet-async";
 import { IProducts } from "../models/IProducts";
 import { CartContext } from "../context/CartContext";
-
+import "./Products.css";
 // Product List Component
 const Products = () => {
   const { myCart, setMyCart } = useContext<any>(CartContext);
@@ -28,7 +28,7 @@ const Products = () => {
         const response = await axios.get(
           "http://localhost:8080/GoFood/api/foodcards"
         );
-        console.log(response.data);
+        console.log(response);
         setProducts(response.data);
       } catch (err) {
         setError("Failed to load products");
@@ -52,53 +52,35 @@ const Products = () => {
 
         <div className="row">
           {/* Loop through the products array and display each product */}
-          {products.length > 0 ? (
-            products.map((product) => (
-              <div className="col-md-4" key={product.id}>
-                <div
-                  className="card mb-4 shadow-sm"
-                  style={{ height: "400px", width: "400px" }}
-                >
-                  <img
-                    src={product.image || "https://via.placeholder.com/150"} // Fallback image
-                    alt={product.name}
-                    className="card-img-top"
-                    style={{ height: "200px", objectFit: "cover" }}
-                  />
+          {(products.length > 0 )? (
+            products.map((product: IProducts) => (
+              <div className="col-md-3" key={product.id}>
+                <div className="card">
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">{product.description}</p>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="text-muted">{product.category}</span>
-                      <span className="font-weight-bold">
-                        ₹{product.price}
-                      </span>{" "}
-                      {/* Displaying price in INR */}
-                    </div>
-                    {/* Link to the product details page */}
-                    {/*<Link
-                      to={`/products/${product.id}`}
-                      className="btn btn-primary mt-3"
-                    >
-                      View Details
-                    </Link>*/}
+                    <b>Price: </b>Rs.{product.price} <br />
+                    <b>Quantity: </b>
+                    {product.quantity}
+                    <br />
+                    <b>Description: </b>
+                    {product.description}
+                    <br />
+                    <b>Category: </b>
+                    {product.category} <br />
                     {myCart.includes(product) ? (
-                      <Link
+                      <button
                         className="btn btn-danger"
-                        to = "#"
                         onClick={() => {
                           console.log("Remove Product from Cart");
                           console.log(product);
-                          // setMyCart([...myCart, product]);
                           removeCart(product);
                         }}
                       >
                         Remove from cart
-                      </Link>
+                      </button>
                     ) : (
-                      <Link
+                      <button
                         className="btn btn-primary"
-                        to="#"
                         onClick={() => {
                           console.log("Add Product to Cart");
                           console.log(product);
@@ -106,7 +88,7 @@ const Products = () => {
                         }}
                       >
                         Add to cart
-                      </Link>
+                      </button>
                     )}
                   </div>
                 </div>
