@@ -42,7 +42,7 @@ const UpdateProduct = () => {
     setValue,
     watch,
   } = useForm({
-    mode: "onChange",
+    mode: "onBlur",
   });
 
   // Pre-fill the form fields when the product data is fetched
@@ -180,8 +180,8 @@ const UpdateProduct = () => {
                       {...register("price", {
                         required: "Price is required",
                         min: {
-                          value: 0,
-                          message: "Price must be a positive number",
+                          value: 50,
+                          message: "Price must be a positive number and more than 50",
                         },
                       })}
                       min="0"
@@ -211,6 +211,10 @@ const UpdateProduct = () => {
                         min: {
                           value: 1,
                           message: "Quantity must be at least 1",
+                        },
+                        max: {
+                          value: 10,
+                          message: "Quantity must be less than or equal to 10",
                         },
                       })}
                       min="1"
