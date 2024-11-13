@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import { IProducts } from "../../models/IProducts";
+import { IProducts } from "../models/IProducts";
 
 interface ICartContext{
   myCart: IProducts[];

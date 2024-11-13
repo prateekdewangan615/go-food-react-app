@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { IProducts } from "../models/IProducts";
-import { CartContext } from "../components/context/CartContext";
+import { CartContext } from "../context/CartContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap JS is imported for carousel
 import "./Products.css";

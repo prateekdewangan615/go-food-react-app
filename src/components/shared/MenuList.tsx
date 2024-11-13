@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 const MenuList = ({}) => {
   const { myCart } = useContext<any>(CartContext);
   return (
