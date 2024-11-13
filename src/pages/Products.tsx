@@ -71,7 +71,7 @@ const Products = () => {
                     {product.category} <br />
                     <div className="d-flex justify-content-between">
                       <Link
-                        to="/products/{{ card.id }}"
+                        to={`/products/${product.id}`} 
                         className="btn btn-primary mt-3 "
                         data-mdb-ripple-init
                       >
