@@ -66,47 +66,49 @@ const CartDetails = () => {
             </tbody>
           </Table>
           <div className="d-flex justify-content-center">
-          <div
-            className="card justify-content-end"
-            style={{ width: "18rem", justifyContent: "center" }}
-          >
             <div
-              className="card "
-              style={{
-                background:
-                  "linear-gradient(to bottom right, #ff9966, #ffcc99)",
-              }}
+              className="card justify-content-end"
+              style={{ width: "18rem", justifyContent: "center" }}
             >
-              <div className="card-body">
-                <table className="table ">
-                  <tbody>
-                    <tr>
-                      <td>Subtotal</td>
-                      <td className="text-end">₹{total}</td>{" "}
-                    </tr>
-                    <tr>
-                      <td>Delivery Fee</td>
-                      <td className="text-end">₹{deliveryFee}</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <b>Total</b>
-                      </td>
-                      <td className="text-end">
-                        <b>₹{getTotalAmount()}</b>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="d-grid gap-2">
-                  <button onClick={handleCheckout} className="btn btn-primary">
-                    Proceed To Checkout
-                  </button>
+              <div
+                className="card "
+                style={{
+                  background:
+                    "linear-gradient(to bottom right, #ff9966, #ffcc99)",
+                }}
+              >
+                <div className="card-body">
+                  <table className="table ">
+                    <tbody>
+                      <tr>
+                        <td>Subtotal</td>
+                        <td className="text-end">₹{total}</td>{" "}
+                      </tr>
+                      <tr>
+                        <td>Delivery Fee</td>
+                        <td className="text-end">₹{deliveryFee}</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Total</b>
+                        </td>
+                        <td className="text-end">
+                          <b>₹{getTotalAmount()}</b>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div className="d-grid gap-2">
+                    <button
+                      onClick={handleCheckout}
+                      className="btn btn-primary"
+                    >
+                      Proceed To Checkout
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
           </div>
         </>
       ) : (
