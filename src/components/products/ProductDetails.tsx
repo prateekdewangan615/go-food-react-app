@@ -80,6 +80,14 @@ const ProductDetails = () => {
   const fallbackImages:any = {
     1: "https://wallpapers.com/images/featured/veg-biryani-png-cs2zh8qs339tqm71.jpg",
     2: "https://pngimg.com/d/pizza_PNG44077.png",
+    3: "https://th.bing.com/th/id/OIP.8y10z_EgQtbGqIRTOK1xeQAAAA?rs=1&pid=ImgDetMain",
+    4: "https://static.vecteezy.com/system/resources/previews/033/025/977/non_2x/butter-chicken-tikka-masala-served-with-roti-ai-generated-png.png",
+    5: "https://png.pngtree.com/png-vector/20240607/ourmid/pngtree-chole-bhature-indian-and-pakistani-street-food-png-image_12629540.png",
+    6: "https://vismaifood.com/storage/app/uploads/public/609/3dc/1d7/6093dc1d77053892307086.jpg",
+    7: "https://noveltysweets.co.nz/wp-content/uploads/2021/08/Pav-Bhaji-min.png",
+    8: "https://static.vecteezy.com/system/resources/previews/026/915/126/non_2x/indian-naan-bread-with-garlic-and-butter-pita-bread-on-a-white-background-png.png",
+    9: "https://static.vecteezy.com/system/resources/previews/022/149/349/non_2x/samosa-on-a-plate-with-sauce-and-tomatoes-png.png",
+    10: "https://th.bing.com/th/id/OIP.SfUGqEdO9-T5Yz5gvWXtcwHaHa?rs=1&pid=ImgDetMain",
     // Add more product IDs and fallback images as needed
     default: "https://via.placeholder.com/150",
   };
