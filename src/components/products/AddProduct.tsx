@@ -52,8 +52,8 @@ const AddProduct = () => {
     }
   };
 
-  const handleGoBack = () => {
-    navigate("/"); // Adjust the route as per your application
+  const handleListProducts = () => {
+    navigate("/products"); // Adjust the route as per your application
   };
 
   // Check if all fields are filled before enabling submit button
@@ -65,17 +65,17 @@ const AddProduct = () => {
     watch("category");
 
   return (
-    <>
+    <div className="cover-img">
       <Helmet>
         <title>Add Product</title>
       </Helmet>
-      <div className="container mt-5">
-        <button className="btn btn-dark mb-4" onClick={handleGoBack}>
-          Go Back
+      <div className="container-fluid mb-3">
+        <button className="btn btn-primary mb-4 mt-3" onClick={handleListProducts}>
+          List of Products
         </button>
         <div className="row justify-content-center">
           <div className="col-md-8">
-            <div className="card shadow-lg p-4">
+            <div className="card shadow-lg p-4 mb-4">
               <h2 className="text-center mb-4">Add Product</h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 {/* Product Name */}
@@ -288,7 +288,7 @@ const AddProduct = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
