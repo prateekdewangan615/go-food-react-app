@@ -77,7 +77,7 @@ const CartDetails = () => {
             position: "fixed",
             bottom: "10px",
             right: "10px",
-            width: "400px",
+            width: "450px",
             zIndex: 999,
           }}
           role="alert"
