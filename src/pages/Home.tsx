@@ -1,11 +1,9 @@
-import Header from "../components/Header/Header"
-
+import HomeContent from "../components/Home/HomeContent"
 const Home = () => {
   return (
     <div>
-      <Header />
+      <HomeContent />
     </div>
   )
 }
-
 export default Home

@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      <main className="container mt-5 pt-2">
+      <main className="">
         {/* Routing Configuration */}
         <Routes>
           <Route path="/" element={<Home />} />

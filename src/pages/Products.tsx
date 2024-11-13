@@ -3,20 +3,11 @@ import axios from "axios";
 // import { Link } from "react-router-dom"; // Import Link component for routing
 import { Helmet } from "react-helmet-async";
 import { IProducts } from "../models/IProducts";
-import { CartContext } from "../context/CartContext";
 import "./Products.css";
+import { Link } from "react-router-dom";
 // Product List Component
 const Products = () => {
-  const { myCart, setMyCart } = useContext<any>(CartContext);
-  console.log(myCart);
-
-  const addCart = (product: IProducts) => {
-    setMyCart([...myCart, product]);
-  };
-  const removeCart = (product: IProducts) => {
-    setMyCart(myCart.filter((c: { id: number }) => c.id !== product.id));
-  };
-
+  
   const [products, setProducts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -67,29 +58,7 @@ const Products = () => {
                     <br />
                     <b>Category: </b>
                     {product.category} <br />
-                    {myCart.includes(product) ? (
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => {
-                          console.log("Remove Product from Cart");
-                          console.log(product);
-                          removeCart(product);
-                        }}
-                      >
-                        Remove from cart
-                      </button>
-                    ) : (
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => {
-                          console.log("Add Product to Cart");
-                          console.log(product);
-                          addCart(product);
-                        }}
-                      >
-                        Add to cart
-                      </button>
-                    )}
+                    <Link to="/products/{{ card.id }}" className="btn btn-primary mt-3" data-mdb-ripple-init>View Details</Link>
                   </div>
                 </div>
               </div>

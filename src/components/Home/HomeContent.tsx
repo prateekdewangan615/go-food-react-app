@@ -1,17 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import './Header.css'
+import './HomeContent.css'
 
-const Home = () => {
+
+const HomeContent = () => {
   const navigate = useNavigate();
   return (
     <>
       <Helmet>
         <title>Home</title>
       </Helmet>
+      
       <div className="header">
         <div className="header-contents">
-          <h2>Order your favourite food here</h2>
+          <h2>Order your favourite food</h2>
           <p>
             Choose from a diverse menu featuring a delectable array of dishes
             crafted with the finest ingredients and culinary expertise. Our
@@ -44,4 +46,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeContent;
