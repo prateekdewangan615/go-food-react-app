@@ -7,11 +7,11 @@ import { Table } from "react-bootstrap";
 
 const CartDetails = () => {
   const navigate = useNavigate();
-  const { myCart, removeCart } = useContext<any>(CartContext);
+  const { myCart,  } = useContext<any>(CartContext);
   console.log("Inside Cart", myCart);
   const [total, setTotal] = useState(0);
   const [deliveryFee, setDeliveryFee] = useState(0);
-  const [showToast, setShowToast] = useState(false); // State for toast visibility
+  const [, setShowToast] = useState(false); // State for toast visibility
 
   useEffect(() => {
     const subtotal = myCart.reduce(
