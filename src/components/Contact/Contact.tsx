@@ -37,13 +37,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="contact">
-      <form onSubmit={onSubmit}>
+    <section className="contact" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <form onSubmit={onSubmit} style={{ maxWidth: '500px', width: '100%' }}>
         <h2>Contact Form</h2>
 
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
+            Email Address
           </label>
           <input
             type="email"
