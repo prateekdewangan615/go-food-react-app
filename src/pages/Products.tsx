@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { IProducts } from "../models/IProducts";
 import { CartContext } from "../components/context/CartContext";
@@ -14,6 +14,7 @@ const Products = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
+  const navigate = useNavigate();
 
   const addCart = (product: IProducts) => {
     const quantity = quantities[product.id] || 1;
@@ -189,6 +190,9 @@ const Products = () => {
         <button
           className="btn btn-info position-fixed bottom-0 end-0"
           style={{ margin: "20px" }}
+          onClick={() => {
+            navigate("/cart");
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

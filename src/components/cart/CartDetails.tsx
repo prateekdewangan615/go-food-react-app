@@ -38,6 +38,7 @@ const CartDetails = () => {
     <>
       {myCart.length > 0 ? (
         <>
+        <h2 className="text-center mb-4">Cart</h2>
           <Table className="container">
             <thead>
               <tr>
