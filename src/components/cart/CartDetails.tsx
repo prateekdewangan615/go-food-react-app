@@ -11,7 +11,7 @@ const CartDetails = () => {
   console.log("Inside Cart", myCart);
   const [total, setTotal] = useState(0);
   const [deliveryFee, setDeliveryFee] = useState(0);
-  const [, setShowToast] = useState(false); // State for toast visibility
+  const [showToast, setShowToast] = useState(false); // State for toast visibility
 
   useEffect(() => {
     const subtotal = myCart.reduce(
@@ -65,25 +65,55 @@ const CartDetails = () => {
             style={{ width: "18rem", justifyContent: "right" }}
           >
             <div className="card-body">
-              <p className="card-text">
+              <div className="card-text">
                 <p>Subtotal : ₹{total}</p>
                 <p>Delivery Fee : ₹{deliveryFee}</p>
                 <p>
                   <b>Total: ₹{getTotalAmount()}</b>
                 </p>
-              </p>
-              <button onClick={() => handleCheckout}>
+              </div>
+              <button onClick={handleCheckout}>
                 Proceed To Checkout
               </button>
             </div>
           </div>
         </>
       ) : (
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 alert alert-danger">
           <h2>No Items in the Cart</h2>
           <Link to="/products" className="btn btn-primary mt-3">
             Order Something Now
           </Link>
+        </div>
+      )}
+      {showToast && (
+        <div
+          className="toast align-items-center text-bg-success border-0 show"
+          style={{
+            position: "fixed",
+            bottom: "10px",
+            right: "10px",
+            width: "400px",
+            zIndex: 999,
+          }}
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div className="d-flex">
+            <div
+              className="toast-body"
+              style={{ fontSize: "1.2rem", padding: "1.2rem" }}
+            >
+              Congratulations, Your order has been noted!
+            </div>
+            <button
+              type="button"
+              className="btn-close btn-close-white me-2 m-auto"
+              onClick={() => setShowToast(false)}
+              aria-label="Close"
+            ></button>
+          </div>
         </div>
       )}
     </>
