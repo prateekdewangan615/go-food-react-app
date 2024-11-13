@@ -1,5 +1,5 @@
 
-import CartDetails from "../components/cart/CartDetails";
+import CartDetails from "./CartDetails";
 
 const Cart = () => {
   return (

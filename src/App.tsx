@@ -9,7 +9,7 @@ import About from "./pages/About";
 import AddProduct from "./components/products/AddProduct";
 import ProductDetails from "./components/products/ProductDetails";
 import UpdateProduct from "./components/products/UpdateProduct";
-import Contact from "./components/Contact/Contact";
+import Contact from "./pages/Contact";
 
 function App() {
   return (

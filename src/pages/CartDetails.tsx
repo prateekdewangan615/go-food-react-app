@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../context/CartContext";
-import { IProducts } from "../../models/IProducts";
+import { CartContext } from "../components/context/CartContext";
+import { IProducts } from "../models/IProducts";
 import "./CartDetails.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Table } from "react-bootstrap";
+import { Helmet } from "react-helmet-async";
 
 const CartDetails = () => {
   const navigate = useNavigate();
@@ -36,9 +37,12 @@ const CartDetails = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       {myCart.length > 0 ? (
         <>
-        <h2 className="text-center mb-4">Cart</h2>
+          <h2 className="text-center mb-4">Cart</h2>
           <Table className="container">
             <thead>
               <tr>
@@ -73,9 +77,7 @@ const CartDetails = () => {
                   <b>Total: ₹{getTotalAmount()}</b>
                 </p>
               </div>
-              <button onClick={handleCheckout}>
-                Proceed To Checkout
-              </button>
+              <button onClick={handleCheckout}>Proceed To Checkout</button>
             </div>
           </div>
         </>
