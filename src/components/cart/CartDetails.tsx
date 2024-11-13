@@ -82,7 +82,7 @@ const CartDetails = () => {
               <b>Total: ₹{getTotalAmount()}</b>
             </p>
           </p>
-          <button onClick={() => navigate("/order")}>
+          <button onClick={() => handleCheckout}>
             Proceed To Checkout
           </button>
         </div>
