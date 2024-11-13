@@ -41,6 +41,15 @@ const MenuList = () => {
           About Us
         </NavLink>
       </li>
+      <li className="nav-item">
+        <NavLink
+          className="nav-link"
+          to="/contact"
+          style={({ isActive }) => isActive ? { fontWeight: 'bold' } : {}}
+        >
+          Contact Us
+        </NavLink>
+      </li>
     </ul>
   );
 };

@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Header from "./components/shared/Header";
 import Footer from "./components/shared/Footer";
@@ -10,7 +9,7 @@ import About from "./pages/About";
 import AddProduct from "./components/products/AddProduct";
 import ProductDetails from "./components/products/ProductDetails";
 import UpdateProduct from "./components/products/UpdateProduct";
-
+import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -27,7 +26,9 @@ function App() {
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/products/:id/edit" element={<UpdateProduct />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+
         </Routes>
       </main>
 
