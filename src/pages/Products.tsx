@@ -3,7 +3,6 @@ import axios from "axios";
 // import { Link } from "react-router-dom"; // Import Link component for routing
 import { Helmet } from "react-helmet-async";
 import { IProducts } from "../models/IProducts";
-import "./Products.css";
 import { Link } from "react-router-dom";
 // Product List Component
 const Products = () => {
@@ -58,7 +57,7 @@ const Products = () => {
                     <br />
                     <b>Category: </b>
                     {product.category} <br />
-                    <Link to="/products/{{ card.id }}" className="btn btn-primary mt-3" data-mdb-ripple-init>View Details</Link>
+                    <Link to={`/products/${product.id}`} className="btn btn-primary mt-3" data-mdb-ripple-init>View Details</Link>
                   </div>
                 </div>
               </div>
