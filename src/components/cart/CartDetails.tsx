@@ -10,8 +10,9 @@ const CartDetails = () => {
   const { myCart, removeCart } = useContext<any>(CartContext);
   console.log("Inside Cart", myCart);
   const [total, setTotal] = useState(0);
-  const [deliveryFee, setDeliveryFee] = useState(0); // Added state for delivery fee
-  
+  const [deliveryFee, setDeliveryFee] = useState(0);
+  const [showToast, setShowToast] = useState(false); // State for toast visibility
+
   useEffect(() => {
     const subtotal = myCart.reduce(
       (acc: number, curr: IProducts) => acc + curr.price * curr.quantity,
@@ -23,6 +24,14 @@ const CartDetails = () => {
 
   const getTotalAmount = () => {
     return total + deliveryFee;
+  };
+
+  const handleCheckout = () => {
+    setShowToast(true); // Show toast
+    setTimeout(() => {
+      setShowToast(false); // Hide toast after 3 seconds
+      navigate("/"); // Navigate to home page
+    }, 3000);
   };
 
   return (

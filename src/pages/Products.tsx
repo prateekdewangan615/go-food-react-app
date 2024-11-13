@@ -126,7 +126,7 @@ const Products = () => {
                       </Link>
                       {myCart.some((prod: IProducts) => prod.id === product.id) ? (
                         <button
-                          className="btn btn-danger mt-3"
+                          className="btn btn-danger mt-3 ms-2"
                           onClick={() => removeCart(product)}
                         >
                           Remove  Cart
