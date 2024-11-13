@@ -122,11 +122,13 @@ const Products = () => {
               <div className="col-md-3" key={product.id}>
                 <div className="card mb-4">
                   <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
+                    <h5 className="card-title">{product.name}</h5> <br />
                     <p>
                       <b>Price:</b> ₹{product.price}
                     </p>
-                    <select
+                    <p>
+                      <b>Quantity:</b> {quantities[product.id] || 1}
+                      <select
                       className="m-2 h-100 rounded"
                       onChange={(e) =>
                         handleQtyChange(product.id, Number(e.target.value))
@@ -140,8 +142,6 @@ const Products = () => {
                         </option>
                       ))}
                     </select>
-                    <p>
-                      <b>Quantity:</b> {quantities[product.id] || 1}
                     </p>
                     <p>
                       <b>Description:</b> {product.description}
@@ -163,7 +163,7 @@ const Products = () => {
                           className="btn btn-danger mt-3 ms-2"
                           onClick={() => removeCart(product)}
                         >
-                          Remove from Cart
+                          Remove Cart
                         </button>
                       ) : (
                         <button
@@ -183,7 +183,6 @@ const Products = () => {
           )}
         </div>
       </div>
-
       <div className="cart-icon-container position-relative">
         {" "}
         {/* Added container */}

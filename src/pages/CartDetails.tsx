@@ -20,7 +20,7 @@ const CartDetails = () => {
       0
     );
     setTotal(subtotal);
-    setDeliveryFee(subtotal > 0 ? 2 : 0);
+    setDeliveryFee(subtotal > 0 ? 5 : 0);
   }, [myCart]);
 
   const getTotalAmount = () => {
@@ -69,15 +69,21 @@ const CartDetails = () => {
             className="card justify-content-end"
             style={{ width: "18rem", justifyContent: "right" }}
           >
-            <div className="card-body">
-              <div className="card-text">
-                <p>Subtotal : ₹{total}</p>
-                <p>Delivery Fee : ₹{deliveryFee}</p>
-                <p>
-                  <b>Total: ₹{getTotalAmount()}</b>
-                </p>
+            <div className="card">
+              <div className="card-body d-grid gap-2 justify-content-center align-items-center">
+                {" "}
+                {/*Using Grid*/}
+                <div className="d-flex justify-content-center">
+                  <div className="card-text">
+                    <p>Subtotal : ₹{total}</p>
+                    <p>Delivery Fee : ₹{deliveryFee}</p>
+                    <p>
+                      <b>Total: ₹{getTotalAmount()}</b>
+                    </p>
+                  </div>
+                </div>
+                <button onClick={handleCheckout}>Proceed To Checkout</button>
               </div>
-              <button onClick={handleCheckout}>Proceed To Checkout</button>
             </div>
           </div>
         </>

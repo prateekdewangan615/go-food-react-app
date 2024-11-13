@@ -30,7 +30,6 @@ const ProductDetails = () => {
 
     fetchProduct();
   }, [id]);
-  
 
   // Navigate to the edit page for the product
   const handleEdit = () => {
@@ -78,6 +77,13 @@ const ProductDetails = () => {
     }
   };
 
+  const fallbackImages:any = {
+    1: "https://wallpapers.com/images/featured/veg-biryani-png-cs2zh8qs339tqm71.jpg",
+    2: "https://pngimg.com/d/pizza_PNG44077.png",
+    // Add more product IDs and fallback images as needed
+    default: "https://via.placeholder.com/150",
+  };
+
   return (
     <div className="cover-img">
       <Helmet>
@@ -101,8 +107,13 @@ const ProductDetails = () => {
                 {/* Display product details */}
                 <div className="row">
                   <div className="col-md-4">
+                    {/*"https://via.placeholder.com/150"*/}
                     <img
-                      src={product.image || "https://via.placeholder.com/150"} // Fallback image
+                      src={
+                        product.image ||
+                        fallbackImages[product.id] ||
+                        fallbackImages.default
+                      }
                       alt={product.name}
                       className="img-fluid rounded"
                       style={{ height: "250px", objectFit: "cover" }}
