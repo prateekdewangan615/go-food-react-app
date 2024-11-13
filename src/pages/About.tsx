@@ -153,7 +153,7 @@ const About = () => {
                   style={{ width: "200px", textAlign: "center" }}
                 >
                   <img
-                    src="https://img.freepik.com/free-vector/realistic-cook-illustration_23-2149654406.jpg?ga=GA1.1.1746728091.1730782965&semt=ais_hybrid"
+                    src="https://img.freepik.com/free-vector/chef-man-with-chocolate-bowl-cartoon-sticker_1308-63968.jpg?ga=GA1.1.1746728091.1730782965&semt=ais_hybrid"
                     alt="Team Member 1"
                     style={{ width: "100%", borderRadius: "50%" }}
                   />
