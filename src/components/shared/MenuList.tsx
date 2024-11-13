@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-const MenuList = () => {
+const MenuList = () => {;
   return (
     <ul className="navbar-nav justify-content-end mb-2 ms-auto gap-2 mb-md-0 ">
       <li className="nav-item">
@@ -27,7 +27,7 @@ const MenuList = () => {
           to="/cart"
           style={({ isActive }) => isActive ? { fontWeight: 'bold' } : {}}
         >
-          Cart
+          Cart 
         </NavLink>
       </li>
       <li className="nav-item">

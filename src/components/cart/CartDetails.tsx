@@ -29,7 +29,6 @@ const CartDetails = () => {
           <p>Price</p>
           <p>Quantity</p>
           <p>Category</p>
-          <p>Remove</p>
         </div>
         <br />
         <hr />
@@ -42,9 +41,6 @@ const CartDetails = () => {
                   <p>₹{product.price}</p>
                   <p>{product.quantity}</p>
                   <p>{product.category}</p>
-                  <p onClick={() => removeCart(product.id)} className="cross">
-                    x
-                  </p>
                 </div>
                 <hr />
               </div>

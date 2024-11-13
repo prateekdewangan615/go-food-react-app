@@ -141,8 +141,8 @@ const AddProduct = () => {
                     {...register("price", {
                       required: "Price is required",
                       min: {
-                        value: 0,
-                        message: "Price must be a positive number",
+                        value: 50,
+                        message: "Price must be a positive number and more than 50",
                       },
                     })}
                     min="0"
