@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
@@ -98,14 +98,14 @@ const UpdateProduct = () => {
   if (isLoading) return <p>Loading product details...</p>;
 
   return (
-    <>
+    <div className="cover-img">
       <Helmet>
         <title>Update Product</title>
       </Helmet>
-      <div className="container mt-5">
-        <button className="btn btn-dark mb-4" onClick={handleGoBack}>
-          Go Back
-        </button>
+      <div className="container">
+        <Link to="/products" className="btn btn-primary mt-3 mb-4" onClick={handleGoBack}>
+          List of Products
+        </Link>
 
         {isError && (
           <p className="text-danger">
@@ -331,7 +331,7 @@ const UpdateProduct = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
