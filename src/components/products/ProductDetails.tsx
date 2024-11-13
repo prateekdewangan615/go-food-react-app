@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 
@@ -30,11 +30,7 @@ const ProductDetails = () => {
 
     fetchProduct();
   }, [id]);
-
-  // Navigate back to the products list
-  const handleGoBack = () => {
-    navigate("/products"); // Navigate back to the product list
-  };
+  
 
   // Navigate to the edit page for the product
   const handleEdit = () => {
@@ -83,14 +79,14 @@ const ProductDetails = () => {
   };
 
   return (
-    <>
+    <div className="cover-img">
       <Helmet>
         <title>Product Details</title>
       </Helmet>
-      <div className="container mt-5">
-        <button className="btn btn-dark mb-4" onClick={handleGoBack}>
-          Go Back
-        </button>
+      <div className="container-fluid mb-3">
+        <Link className="btn btn-primary mt-3 mb-4" to="/products/add">
+          Add a new Item
+        </Link>
 
         {isLoading && <p>Loading product details...</p>}
 
@@ -99,7 +95,7 @@ const ProductDetails = () => {
         {product && (
           <div className="row justify-content-center">
             <div className="col-md-8">
-              <div className="card shadow-lg p-4">
+              <div className="card shadow-lg p-4 mb-3">
                 <h2 className="text-center mb-4">{product.name}</h2>
 
                 {/* Display product details */}
@@ -273,7 +269,7 @@ const ProductDetails = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
