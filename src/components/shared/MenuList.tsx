@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-const MenuList = () => {;
+import { CartContext } from "../context/CartContext";
+const MenuList = ({}) => {
+  const { myCart } = useContext<any>(CartContext);
   return (
     <ul className="navbar-nav justify-content-end mb-2 ms-auto gap-2 mb-md-0 ">
       <li className="nav-item">
@@ -28,6 +31,7 @@ const MenuList = () => {;
           style={({ isActive }) => isActive ? { fontWeight: 'bold' } : {}}
         >
           Cart 
+          <span className="cart-count">({myCart.length})</span>
         </NavLink>
       </li>
       <li className="nav-item">
