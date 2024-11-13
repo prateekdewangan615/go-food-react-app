@@ -66,7 +66,7 @@ const Products = () => {
                   </div>
                 </div>
                 <button
-                  className="carousel-control-prev"
+                  className="carousel-control-prev bg-transparent"
                   type="button"
                   data-bs-target="#carouselExampleFade"
                   data-bs-slide="prev"
@@ -78,7 +78,7 @@ const Products = () => {
                   <span className="visually-hidden">Previous</span>
                 </button>
                 <button
-                  className="carousel-control-next"
+                  className="carousel-control-next bg-transparent"
                   type="button"
                   data-bs-target="#carouselExampleFade"
                   data-bs-slide="next"
