@@ -19,7 +19,7 @@ const AddProduct = () => {
     formState: { errors },
     watch,
   } = useForm({
-    mode: "onChange", // Trigger validation as the user types
+    mode: "onBlur", // Trigger validation when field loses focus
   });
 
   const onSubmit: SubmitHandler<FieldValues> = async (formData: any) => {
@@ -171,6 +171,7 @@ const AddProduct = () => {
                     {...register("quantity", {
                       required: "Quantity is required",
                       min: { value: 1, message: "Quantity must be at least 1" },
+                      max: { value: 10, message: "Quantity must be less than or equal to 10"},
                     })}
                     min="1"
                   />
