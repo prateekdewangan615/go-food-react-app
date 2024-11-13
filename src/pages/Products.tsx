@@ -7,6 +7,8 @@ import { CartContext } from "../components/context/CartContext";
 import "./Products.css"
 // Product List Component
 const Products = () => {
+
+  
   const { myCart, setMyCart } = useContext<any>(CartContext);
   console.log(myCart);
 
