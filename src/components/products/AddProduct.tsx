@@ -5,8 +5,8 @@ import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
 const AddProduct = () => {
-  const [isSaved, setIsSaved] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [, setIsSaved] = useState(false);
+  const [, setIsError] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false); // New state for error toast
 

@@ -9,7 +9,8 @@ const CartDetails = () => {
   const { myCart, removeCart } = useContext<any>(CartContext);
   console.log("Inside Cart", myCart);
   const [total, setTotal] = useState(0);
-  const [deliveryFee, setDeliveryFee] = useState(0); // Added state for delivery fee
+  const [deliveryFee, setDeliveryFee] = useState(0);
+  const [showToast, setShowToast] = useState(false); // State for toast visibility
 
   useEffect(() => {
     const subtotal = myCart.reduce(
@@ -22,6 +23,14 @@ const CartDetails = () => {
 
   const getTotalAmount = () => {
     return total + deliveryFee;
+  };
+
+  const handleCheckout = () => {
+    setShowToast(true); // Show toast
+    setTimeout(() => {
+      setShowToast(false); // Hide toast after 3 seconds
+      navigate("/"); // Navigate to home page
+    }, 3000);
   };
 
   return (
@@ -78,6 +87,38 @@ const CartDetails = () => {
           </button>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      {showToast && (
+        <div
+          className="toast align-items-center text-bg-success border-0 show"
+          style={{
+            position: "fixed",
+            bottom: "10px",
+            right: "10px",
+            width: "450px",
+            zIndex: 999,
+          }}
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div className="d-flex">
+            <div
+              className="toast-body"
+              style={{ fontSize: "1.2rem", padding: "1.2rem" }}
+            >
+              Congratulations, Your order has been noted!
+            </div>
+            <button
+              type="button"
+              className="btn-close btn-close-white me-2 m-auto"
+              onClick={() => setShowToast(false)}
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
