@@ -134,7 +134,7 @@ const Products = () => {
                       style={{ backgroundColor: "#E4A11B", color: "#0F172B" }}
                       value={quantities[product.id] || 1}
                     >
-                      {Array.from({ length: 6 }, (_, i) => (
+                      {Array.from({ length: 10 }, (_, i) => (
                         <option key={i + 1} value={i + 1}>
                           {i + 1}
                         </option>
@@ -163,7 +163,7 @@ const Products = () => {
                           className="btn btn-danger mt-3 ms-2"
                           onClick={() => removeCart(product)}
                         >
-                          Remove Cart
+                          Remove from Cart
                         </button>
                       ) : (
                         <button
