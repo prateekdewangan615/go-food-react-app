@@ -116,7 +116,7 @@ const UpdateProduct = () => {
         {product && (
           <div className="row justify-content-center">
             <div className="col-md-8">
-              <div className="card shadow-lg p-4">
+              <div className="card shadow-lg p-4 mb-3">
                 <h2 className="text-center mb-4">Update Product</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   {/* Product Name */}
