@@ -6,8 +6,8 @@ const Footer = function () {
   return (
     <footer className="text-center">
       <hr />
-      <p>Copyright {copyrightYear}</p>
       <MenuList/>
+      <p>Copyright&copy; {copyrightYear}</p>
     </footer>
   )
 }
