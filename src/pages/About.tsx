@@ -1,6 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { Helmet } from "react-helmet-async";
-import bg1 from "../assets/images/biriyani.png";
 
 const Container = styled.div`
   max-width: 1200px; /* Adjust as needed */
@@ -9,7 +8,7 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  background-color: #FFF5EE;
+  background-color: #fff5ee;
   padding: 50px 0;
 `;
 
@@ -18,20 +17,10 @@ const Header = styled.header`
   margin-bottom: 40px;
 `;
 
-const Title = styled.h1`
-  font-size: 2.5rem;
-  color: #FF6F00;
-  font-weight: 700;
-  span {
-    color: #FF3D00;
-  }
-`;
-
 const Paragraph = styled.p`
   font-size: 1.2rem;
   color: #333;
 `;
-
 
 const VisionMissionValues = styled.div`
   display: flex;
@@ -41,7 +30,8 @@ const VisionMissionValues = styled.div`
 `;
 
 const VisionMissionValuesItem = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary}; /* Use theme for color consistency */
+  background-color: ${({ theme }) =>
+    theme.colors.primary}; /* Use theme for color consistency */
   color: white;
   padding: 20px;
   flex: 1; /* Each item takes equal width */
@@ -50,39 +40,21 @@ const VisionMissionValuesItem = styled.div`
   h2 {
     color: white;
   }
-
 `;
 
 const ImageGallery = styled.div`
   margin-top: 40px;
   h2 {
     text-align: center;
-    color: #FF6F00;
+    color: #ff6f00;
   }
 `;
-
-const GalleryContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const GalleryImage = styled.div`
-  width: 300px;
-  height: 300px;
-  background-image: url(${bg1});
-  background-size: cover;
-  border-radius: 10px;
-`;
-
-
 
 const TeamSection = styled.div`
   margin-top: 60px;
   text-align: center;
   h2 {
-    color: #FF6F00;
+    color: #ff6f00;
   }
   p {
     font-size: 1.1rem;
@@ -105,14 +77,13 @@ const TeamMember = styled.div`
     border-radius: 50%;
   }
   h3 {
-    color: #FF3D00;
+    color: #ff3d00;
   }
   p {
     font-style: italic;
-    color: #FF6F00;
+    color: #ff6f00;
   }
 `;
-
 
 const About = () => {
   return (
@@ -123,9 +94,7 @@ const About = () => {
       <Section>
         <Container>
           <Header>
-            <h1>
-              Welcome to Go Food
-            </h1>
+            <h1>Welcome to Go Food</h1>
             <Paragraph>
               Your go-to food cart app for fresh, delicious, and fast meals.
             </Paragraph>
@@ -144,10 +113,10 @@ const About = () => {
             <VisionMissionValuesItem theme={{ colors: { primary: "#FF3D00" } }}>
               <h2>Our Mission</h2>
               <Paragraph>
-                Our mission is to provide affordable, nutritious, and fast
-                meals from the best local food carts. We want to revolutionize
-                the way people experience food on the go, combining
-                convenience with incredible taste.
+                Our mission is to provide affordable, nutritious, and fast meals
+                from the best local food carts. We want to revolutionize the way
+                people experience food on the go, combining convenience with
+                incredible taste.
               </Paragraph>
             </VisionMissionValuesItem>
             <VisionMissionValuesItem theme={{ colors: { primary: "#FF9800" } }}>
@@ -164,17 +133,57 @@ const About = () => {
 
           <ImageGallery>
             <h2>Explore Our Delicious Food</h2>
-            <GalleryContainer>
-              <GalleryImage />
-            </GalleryContainer>
+            <div
+              className="gallery-container"
+              style={{
+                display: "flex",
+                gap: "10px",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                className="image"
+                style={{
+                  width: "300px",
+                  height: "300px",
+                  backgroundImage:
+                    'url("https://pngimg.com/d/pizza_PNG44077.png")',
+                  backgroundSize: "cover",
+                  borderRadius: "10px",
+                }}
+              ></div>
+              <div
+                className="image"
+                style={{
+                  width: "300px",
+                  height: "300px",
+                  backgroundImage:
+                    'url("https://png.pngtree.com/png-vector/20240607/ourmid/pngtree-chole-bhature-indian-and-pakistani-street-food-png-image_12629540.png")',
+                  backgroundSize: "cover",
+                  borderRadius: "10px",
+                }}
+              ></div>
+              <div
+                className="image"
+                style={{
+                  width: "310px",
+                  height: "310px",
+                  backgroundImage:
+                    'url("https://noveltysweets.co.nz/wp-content/uploads/2021/08/Pav-Bhaji-min.png")',
+                  backgroundSize: "cover",
+                  borderRadius: "10px",
+                }}
+              ></div>
+            </div>
           </ImageGallery>
 
           <TeamSection>
             <h2>Meet Our Team</h2>
             <Paragraph>
-              Our team is dedicated to delivering exceptional food and
-              services to our customers. From the chefs to the delivery team,
-              we work together to ensure your meal experience is flawless.
+              Our team is dedicated to delivering exceptional food and services
+              to our customers. From the chefs to the delivery team, we work
+              together to ensure your meal experience is flawless.
             </Paragraph>
             <TeamGallery>
               <TeamMember>
