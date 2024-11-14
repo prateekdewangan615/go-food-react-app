@@ -9,8 +9,8 @@ const ProductDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showConfirmation, setShowConfirmation] = useState(false); // State for showing the confirmation modal
-  const [showToast, setShowToast] = useState(false); // State for showing the success toast
-  const [showErrorToast, setShowErrorToast] = useState(false); // State for showing the error toast
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false); // State for showing the success toast
+  const [showErrorDelete, setShowErrorDelete] = useState(false); // State for showing the error toast
   const navigate = useNavigate();
 
   // Fetch product details
@@ -57,11 +57,11 @@ const ProductDetails = () => {
         setShowConfirmation(false);
 
         // Show success toast notification
-        setShowToast(true);
+        setShowDeleteConfirmation(true);
 
         // Wait for 3 seconds and then navigate to the products page
         setTimeout(() => {
-          setShowToast(false);
+          setShowDeleteConfirmation(false);
           navigate("/products");
         }, 2000); // Hide toast and navigate after 3 seconds
       }
@@ -70,14 +70,14 @@ const ProductDetails = () => {
       setShowConfirmation(false);
 
       // Show error toast notification in case of failure
-      setShowErrorToast(true);
+      setShowErrorDelete(true);
 
       // Hide error toast after 3 seconds
-      setTimeout(() => setShowErrorToast(false), 2000);
+      setTimeout(() => setShowErrorDelete(false), 2000);
     }
   };
 
-  const fallbackImages:any = {
+  const fallbackImages: any = {
     1: "https://wallpapers.com/images/featured/veg-biryani-png-cs2zh8qs339tqm71.jpg",
     2: "https://pngimg.com/d/pizza_PNG44077.png",
     3: "https://th.bing.com/th/id/OIP.8y10z_EgQtbGqIRTOK1xeQAAAA?rs=1&pid=ImgDetMain",
@@ -224,69 +224,70 @@ const ProductDetails = () => {
           </div>
         )}
 
-        {/* Success Toast Notification */}
-        {showToast && (
+        {showDeleteConfirmation && (
           <div
-            className="toast align-items-center text-bg-success border-0 show"
+            className="modal fade show"
             style={{
+              display: "block",
               position: "fixed",
-              bottom: "10px",
-              right: "10px",
-              width: "400px",
-              zIndex: 999,
+              top: "0",
+              left: "0",
+              width: "100%",
+              height: "100vh",
+              zIndex: 9999,
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent backdrop
             }}
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
+            role="dialog"
+            aria-labelledby="deleteConfirmationModal"
+            aria-hidden="false"
           >
-            <div className="d-flex">
-              <div
-                className="toast-body"
-                style={{ fontSize: "1.2rem", padding: "1.2rem" }}
-              >
-                Product deleted successfully!
+            <div
+              className="modal-dialog modal-dialog-centered"
+              style={{ maxWidth: "500px" }}
+            >
+              <div className="modal-content rounded-3 shadow-lg bg-success">
+                <div className="modal-body">
+                  <p className="text-center text-light">
+                    Your Item is deleted Successfully.
+                  </p>
+                </div>
               </div>
-              <button
-                type="button"
-                className="btn-close btn-close-white me-2 m-auto"
-                onClick={() => setShowToast(false)}
-                aria-label="Close"
-              ></button>
             </div>
           </div>
         )}
 
-        {/* Error Toast Notification */}
-        {showErrorToast && (
+        {showErrorDelete && (
           <div
-            className="toast align-items-center text-bg-danger border-0 show"
+            className="modal fade show"
             style={{
+              display: "block",
               position: "fixed",
-              bottom: "10px",
-              right: "10px",
-              width: "400px",
-              zIndex: 999,
+              top: "0",
+              left: "0",
+              width: "100%",
+              height: "100vh",
+              zIndex: 9999,
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent backdrop
             }}
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
+            role="dialog"
+            aria-labelledby="deleteConfirmationModal"
+            aria-hidden="false"
           >
-            <div className="d-flex">
-              <div
-                className="toast-body"
-                style={{ fontSize: "1.2rem", padding: "1.2rem" }}
-              >
-                Failed to delete product. Please try again.
+            <div
+              className="modal-dialog modal-dialog-centered"
+              style={{ maxWidth: "500px" }}
+            >
+              <div className="modal-content rounded-3 shadow-lg bg-danger">
+                <div className="modal-body">
+                  <p className="text-center text-light">
+                    Error deleting the product.
+                  </p>
+                </div>
               </div>
-              <button
-                type="button"
-                className="btn-close btn-close-white me-2 m-auto"
-                onClick={() => setShowErrorToast(false)}
-                aria-label="Close"
-              ></button>
             </div>
           </div>
         )}
+
       </div>
     </div>
   );
