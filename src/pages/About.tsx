@@ -91,7 +91,7 @@ const About = () => {
                 className="gallery-container"
                 style={{
                   display: "flex",
-                  gap: "20px",
+                  gap: "10px",
                   flexWrap: "wrap",
                   justifyContent: "center",
                 }}
@@ -101,7 +101,7 @@ const About = () => {
                   style={{
                     width: "300px",
                     height: "300px",
-                    backgroundImage: 'url("/images/food1.jpg")',
+                    backgroundImage: 'url("https://pngimg.com/d/pizza_PNG44077.png")',
                     backgroundSize: "cover",
                     borderRadius: "10px",
                   }}
@@ -111,7 +111,7 @@ const About = () => {
                   style={{
                     width: "300px",
                     height: "300px",
-                    backgroundImage: 'url("/images/food2.jpg")',
+                    backgroundImage: 'url("https://png.pngtree.com/png-vector/20240607/ourmid/pngtree-chole-bhature-indian-and-pakistani-street-food-png-image_12629540.png")',
                     backgroundSize: "cover",
                     borderRadius: "10px",
                   }}
@@ -119,9 +119,9 @@ const About = () => {
                 <div
                   className="image"
                   style={{
-                    width: "300px",
-                    height: "300px",
-                    backgroundImage: 'url("/images/food3.jpg")',
+                    width: "310px",
+                    height: "310px",
+                    backgroundImage: 'url("https://noveltysweets.co.nz/wp-content/uploads/2021/08/Pav-Bhaji-min.png")',
                     backgroundSize: "cover",
                     borderRadius: "10px",
                   }}
