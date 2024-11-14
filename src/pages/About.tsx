@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
+import bg1 from "../assets/images/Biriyani.png"
+
 const About = () => {
   return (
     <>
@@ -96,36 +98,18 @@ const About = () => {
                   justifyContent: "center",
                 }}
               >
+                
                 <div
                   className="image"
                   style={{
                     width: "300px",
                     height: "300px",
-                    backgroundImage: 'url("https://pngimg.com/d/pizza_PNG44077.png")',
+                    backgroundImage: `url(${bg1})`,
                     backgroundSize: "cover",
                     borderRadius: "10px",
                   }}
                 ></div>
-                <div
-                  className="image"
-                  style={{
-                    width: "300px",
-                    height: "300px",
-                    backgroundImage: 'url("https://png.pngtree.com/png-vector/20240607/ourmid/pngtree-chole-bhature-indian-and-pakistani-street-food-png-image_12629540.png")',
-                    backgroundSize: "cover",
-                    borderRadius: "10px",
-                  }}
-                ></div>
-                <div
-                  className="image"
-                  style={{
-                    width: "310px",
-                    height: "310px",
-                    backgroundImage: 'url("https://noveltysweets.co.nz/wp-content/uploads/2021/08/Pav-Bhaji-min.png")',
-                    backgroundSize: "cover",
-                    borderRadius: "10px",
-                  }}
-                ></div>
+                
               </div>
             </div>
 
