@@ -6,7 +6,7 @@
 
 .carousel-item {
   object-fit: cover;
-  filter: brightness(30%);
+  filter: brightness(60%);
   height: 40rem;
 }
 
