@@ -124,7 +124,8 @@ const Products = () => {
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5> <br />
                     <p>
-                      <b>Price:</b> ₹{product.price}
+                      <b>Price:</b> ₹
+                      {product.price * (quantities[product.id] || 1)}
                     </p>
                     <p>
                       <b>Quantity:</b> {quantities[product.id] || 1}

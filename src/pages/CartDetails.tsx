@@ -62,7 +62,7 @@ const CartDetails = () => {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{product.name}</td>
-                  <td>{product.price}</td>
+                  <td>{product.price * product.quantity}</td>
                   <td>{product.quantity}</td>
                   <td>{product.category}</td>
                 </tr>
