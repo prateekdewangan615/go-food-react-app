@@ -247,9 +247,9 @@ const ProductDetails = () => {
             >
               <div className="modal-content rounded-3 shadow-lg bg-success">
                 <div className="modal-body">
-                  <p className="text-center text-light">
+                  <h5 className="text-center text-light">
                     Your Item is deleted Successfully.
-                  </p>
+                  </h5>
                 </div>
               </div>
             </div>
