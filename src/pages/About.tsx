@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Helmet } from "react-helmet-async";
-import bg1 from "../assets/images/Biriyani.png";
+import bg1 from "../assets/images/biriyani.png";
 
 const Container = styled.div`
   max-width: 1200px; /* Adjust as needed */

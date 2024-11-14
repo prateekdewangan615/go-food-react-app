@@ -68,7 +68,6 @@ const Products = () => {
               src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               className="d-block w-100"
               alt="1"
-              
             />
           </div>
           <div className="carousel-item">
@@ -130,19 +129,19 @@ const Products = () => {
                     <p>
                       <b>Quantity:</b> {quantities[product.id] || 1}
                       <select
-                      className="m-2 h-100 rounded"
-                      onChange={(e) =>
-                        handleQtyChange(product.id, Number(e.target.value))
-                      }
-                      style={{ backgroundColor: "#E4A11B", color: "#0F172B" }}
-                      value={quantities[product.id] || 1}
-                    >
-                      {Array.from({ length: 10 }, (_, i) => (
-                        <option key={i + 1} value={i + 1}>
-                          {i + 1}
-                        </option>
-                      ))}
-                    </select>
+                        className="m-2 h-100 rounded"
+                        onChange={(e) =>
+                          handleQtyChange(product.id, Number(e.target.value))
+                        }
+                        style={{ backgroundColor: "#E4A11B", color: "#0F172B" }}
+                        value={quantities[product.id] || 1}
+                      >
+                        {Array.from({ length: 10 }, (_, i) => (
+                          <option key={i + 1} value={i + 1}>
+                            {i + 1}
+                          </option>
+                        ))}
+                      </select>
                     </p>
                     <p>
                       <b>Description:</b> {product.description}
