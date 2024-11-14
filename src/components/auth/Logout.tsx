@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
+import { CartContext } from '../../context/CartContext';  // Import CartContext
 
 const Logout = () => {
     const navigate = useNavigate();
     const [showToast, setShowToast] = useState(false);
+
+    // Access setIsLoggedIn from context
+    const { setIsLoggedIn } = useContext(CartContext) ?? {};  // Use optional chaining to avoid undefined errors
 
     useEffect(() => {
         const handleLogout = async () => {
@@ -15,11 +19,14 @@ const Logout = () => {
 
                 // Clear any stored authentication data (if using localStorage or cookies)
                 localStorage.removeItem('authToken');
-                
+
+                // Reset login state in context
+                setIsLoggedIn?.(false);  // Ensure setIsLoggedIn is defined before calling
+
                 // Show toast and redirect after 3 seconds
                 setShowToast(true);
                 setTimeout(() => {
-                    navigate('/signup');  // Redirect to home page
+                    navigate('/signup');  // Redirect to signup page
                 }, 3000);
             } catch (error) {
                 console.error("Error logging out:", error);
@@ -27,13 +34,13 @@ const Logout = () => {
         };
 
         handleLogout();
-    }, [navigate]);
+    }, [navigate, setIsLoggedIn]);
 
     return (
       <>
-      <Helmet>
-        <title>Logout</title>
-      </Helmet>
+        <Helmet>
+            <title>Logout</title>
+        </Helmet>
         <div
             style={{
                 display: 'flex',
@@ -80,7 +87,7 @@ const Logout = () => {
                 </div>
             )}
         </div>
-        </>
+      </>
     );
 };
 

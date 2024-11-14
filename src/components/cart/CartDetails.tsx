@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import { IProducts } from "../../models/IProduct";
+import { IProduct } from "../../models/IProduct";
 import "./CartDetails.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Table } from "react-bootstrap";
@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const CartDetails = () => {
   const navigate = useNavigate();
-  const { myCart } = useContext<any>(CartContext);
+  const { myCart, setMyCart } = useContext<any>(CartContext);  // Access setMyCart to update the cart state
   console.log("Inside Cart", myCart);
   const [total, setTotal] = useState(0);
   const [deliveryFee, setDeliveryFee] = useState(0);
@@ -16,7 +16,7 @@ const CartDetails = () => {
 
   useEffect(() => {
     const subtotal = myCart.reduce(
-      (acc: number, curr: IProducts) => acc + curr.price * curr.quantity,
+      (acc: number, curr: IProduct) => acc + curr.price * curr.quantity,
       0
     );
     setTotal(subtotal);
@@ -29,6 +29,8 @@ const CartDetails = () => {
 
   const handleCheckout = () => {
     setShowToast(true); // Show toast
+    setMyCart([]); // Empty the cart
+
     setTimeout(() => {
       setShowToast(false); // Hide toast after 3 seconds
       navigate("/"); // Navigate to home page
@@ -58,7 +60,7 @@ const CartDetails = () => {
               </tr>
             </thead>
             <tbody>
-              {myCart.map((product: IProducts, index: any) => (
+              {myCart.map((product: IProduct, index: any) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{product.name}</td>
