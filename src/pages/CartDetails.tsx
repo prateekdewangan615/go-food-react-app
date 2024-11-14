@@ -36,10 +36,14 @@ const CartDetails = () => {
   };
 
   return (
-    <>
+    <section
+      className="about-us"
+      style={{ backgroundColor: "#FFF3E0", padding: "50px 0" }}
+    >
       <Helmet>
         <title>Cart</title>
       </Helmet>
+
       {myCart.length > 0 ? (
         <>
           <h2 className="text-center mb-4">Cart</h2>
@@ -149,7 +153,7 @@ const CartDetails = () => {
           </div>
         </div>
       )}
-    </>
+    </section>
   );
 };
 
