@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const SignupForm = () => {
     const [username, setUsername] = useState('');
@@ -29,6 +30,10 @@ const SignupForm = () => {
     };
 
     return (
+      <>
+      <Helmet>
+        <title>Sign Up</title>
+      </Helmet>
         <div
             style={{
                 display: 'flex',
@@ -178,6 +183,7 @@ const SignupForm = () => {
                 </div>
             )}
         </div>
+        </>
     );
 };
 

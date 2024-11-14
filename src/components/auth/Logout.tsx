@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const Logout = () => {
     const navigate = useNavigate();
@@ -29,6 +30,10 @@ const Logout = () => {
     }, [navigate]);
 
     return (
+      <>
+      <Helmet>
+        <title>Logout</title>
+      </Helmet>
         <div
             style={{
                 display: 'flex',
@@ -75,6 +80,7 @@ const Logout = () => {
                 </div>
             )}
         </div>
+        </>
     );
 };
 
