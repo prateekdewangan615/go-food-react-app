@@ -12,6 +12,7 @@ import UpdateProduct from "./components/products/UpdateProduct";
 import Contact from "./pages/Contact";
 import LoginForm from "./components/auth/LoginForm";
 import SignupForm from "./components/auth/SignupForm";
+import Logout from "./components/auth/Logout";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<LoginForm/>} />
           <Route path="/signup" element={<SignupForm/>} />
+          <Route path="/logout" element={<Logout/>} />
 
         </Routes>
       </main>

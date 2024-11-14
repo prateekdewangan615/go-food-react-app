@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
+    const [showToast, setShowToast] = useState(false);  // State to control toast visibility
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/GoFood/api/signup', { username, password, email });
             if (response.status === 200) {
-                window.location.href = '/login';  // Redirect to login page after successful signup
+                setShowToast(true);  // Show the toast
+
+                // After 3 seconds, hide the toast and navigate to the login page
+                setTimeout(() => {
+                    setShowToast(false);
+                    navigate('/login');
+                }, 3000);
             }
         } catch (error: any) {
             setError('Username already exists or something went wrong');
@@ -26,19 +35,19 @@ const SignupForm = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100vh',
-                backgroundColor: '#FFF3E0',  // Light orangish background for the page
-                fontFamily: "'Roboto', sans-serif",  // Clean and modern font
+                backgroundColor: '#FFF3E0',
+                fontFamily: "'Roboto', sans-serif",
             }}
         >
             <form
                 onSubmit={handleSubmit}
                 style={{
-                    backgroundColor: '#FFFFFF',  // White background for the form
+                    backgroundColor: '#FFFFFF',
                     padding: '40px',
                     borderRadius: '8px',
                     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
                     width: '100%',
-                    maxWidth: '400px',  // Max width of form
+                    maxWidth: '400px',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '20px',
@@ -47,7 +56,7 @@ const SignupForm = () => {
                 <h2
                     style={{
                         textAlign: 'center',
-                        color: '#FF6F00',  // Orange color for title
+                        color: '#FF6F00',
                         marginBottom: '20px',
                         fontWeight: '600',
                     }}
@@ -67,7 +76,7 @@ const SignupForm = () => {
                             padding: '12px',
                             fontSize: '16px',
                             borderRadius: '6px',
-                            border: '1px solid #FF6F00',  // Orange border for input
+                            border: '1px solid #FF6F00',
                             transition: 'border-color 0.3s',
                         }}
                         onFocus={(e) => (e.target as HTMLInputElement).style.borderColor = '#FF3D00'}
@@ -87,7 +96,7 @@ const SignupForm = () => {
                             padding: '12px',
                             fontSize: '16px',
                             borderRadius: '6px',
-                            border: '1px solid #FF6F00',  // Orange border for input
+                            border: '1px solid #FF6F00',
                             transition: 'border-color 0.3s',
                         }}
                         onFocus={(e) => (e.target as HTMLInputElement).style.borderColor = '#FF3D00'}
@@ -107,7 +116,7 @@ const SignupForm = () => {
                             padding: '12px',
                             fontSize: '16px',
                             borderRadius: '6px',
-                            border: '1px solid #FF6F00',  // Orange border for input
+                            border: '1px solid #FF6F00',
                             transition: 'border-color 0.3s',
                         }}
                         onFocus={(e) => (e.target as HTMLInputElement).style.borderColor = '#FF3D00'}
@@ -124,7 +133,7 @@ const SignupForm = () => {
                         fontSize: '16px',
                         borderRadius: '6px',
                         border: 'none',
-                        backgroundColor: '#FF6F00',  // Orange button background
+                        backgroundColor: '#FF6F00',
                         color: '#fff',
                         fontWeight: '600',
                         cursor: 'pointer',
@@ -136,6 +145,38 @@ const SignupForm = () => {
                     Sign Up
                 </button>
             </form>
+
+            {/* Custom Toast Notification */}
+            {showToast && (
+                <div
+                    className="toast align-items-center text-bg-success border-0 show"
+                    style={{
+                        position: "fixed",
+                        bottom: "10px",
+                        right: "10px",
+                        width: "400px",
+                        zIndex: 999,
+                    }}
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                >
+                    <div className="d-flex">
+                        <div
+                            className="toast-body"
+                            style={{ fontSize: "1.2rem", padding: "1.2rem" }}
+                        >
+                            Signup successful! Redirecting to login...
+                        </div>
+                        <button
+                            type="button"
+                            className="btn-close btn-close-white me-2 m-auto"
+                            onClick={() => setShowToast(false)}
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

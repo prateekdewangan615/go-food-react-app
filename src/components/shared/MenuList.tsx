@@ -70,6 +70,15 @@ const MenuList = ({}) => {
           Sign Up
         </NavLink>
       </li>
+      <li className="nav-item">
+        <NavLink
+          className="nav-link"
+          to="/logout"
+          style={({ isActive }) => isActive ? { fontWeight: 'bold' } : {}}
+        >
+          Logout
+        </NavLink>
+      </li>
     </ul>
   );
 };
