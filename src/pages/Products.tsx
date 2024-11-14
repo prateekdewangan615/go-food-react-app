@@ -163,7 +163,7 @@ const Products = () => {
                           className="btn btn-danger mt-3 ms-2"
                           onClick={() => removeCart(product)}
                         >
-                          Remove Cart
+                          Remove from Cart
                         </button>
                       ) : (
                         <button
