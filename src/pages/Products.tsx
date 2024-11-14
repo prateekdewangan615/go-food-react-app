@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { IProducts } from "../models/IProducts";
+import { IProduct } from "../models/IProduct";
 import { CartContext } from "../context/CartContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap JS is imported for carousel
@@ -10,18 +10,18 @@ import "./Products.css";
 
 const Products = () => {
   const { myCart, setMyCart } = useContext<any>(CartContext);
-  const [products, setProducts] = useState<IProducts[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
   const navigate = useNavigate();
 
-  const addCart = (product: IProducts) => {
+  const addCart = (product: IProduct) => {
     const quantity = quantities[product.id] || 1;
     setMyCart([...myCart, { ...product, quantity }]);
   };
 
-  const removeCart = (product: IProducts) => {
+  const removeCart = (product: IProduct) => {
     setMyCart(myCart.filter((c: { id: number }) => c.id !== product.id));
   };
 
@@ -118,7 +118,7 @@ const Products = () => {
         {error && <p className="text-danger">{error}</p>}
         <div className="row">
           {products.length > 0 ? (
-            products.map((product: IProducts) => (
+            products.map((product: IProduct) => (
               <div className="col-md-3" key={product.id}>
                 <div className="card mb-4">
                   <div className="card-body">
@@ -158,7 +158,7 @@ const Products = () => {
                         View Details
                       </Link>
                       {myCart.some(
-                        (prod: IProducts) => prod.id === product.id
+                        (prod: IProduct) => prod.id === product.id
                       ) ? (
                         <button
                           className="btn btn-danger mt-3 ms-2"

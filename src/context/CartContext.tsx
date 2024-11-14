@@ -1,14 +1,14 @@
 import { createContext, ReactNode, useState } from "react";
-import { IProducts } from "../models/IProducts";
+import { IProduct } from "../models/IProduct";
 
 interface ICartContext{
-  myCart: IProducts[];
-  setMyCart: React.Dispatch<React.SetStateAction<IProducts[]>>;
+  myCart: IProduct[];
+  setMyCart: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 export const CartContext = createContext<ICartContext | undefined>({myCart:[],setMyCart:()=>{}});
 
 export const CartContextProvider:React.FC<{children: ReactNode}> = ({children}) =>{
-  const [myCart, setMyCart] = useState<IProducts[]>([]);
+  const [myCart, setMyCart] = useState<IProduct[]>([]);
   console.log(" inside context",myCart);
 
   const dataToBeSupplied = {
