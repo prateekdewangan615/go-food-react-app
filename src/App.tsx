@@ -10,6 +10,8 @@ import AddProduct from "./components/products/AddProduct";
 import ProductDetails from "./components/products/ProductDetails";
 import UpdateProduct from "./components/products/UpdateProduct";
 import Contact from "./pages/Contact";
+import LoginForm from "./components/auth/LoginForm";
+import SignupForm from "./components/auth/SignupForm";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<LoginForm/>} />
+          <Route path="/signup" element={<SignupForm/>} />
 
         </Routes>
       </main>
